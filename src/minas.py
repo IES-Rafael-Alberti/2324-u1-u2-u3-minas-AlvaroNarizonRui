@@ -40,14 +40,15 @@ def jugar():
                     salir = True
             if opcion == 2:
                 #Entrada
-                coordenada_y = int(input("Ingresa la coordenada en y donde plantar la bandera (0 al 7): "))
-                coordenada_x = int(input("Ingresa la coordenada en x donde plantar la bandera (0 al 7): "))
+                coordenadas = str(input("Escribe las coordenadas de la casilla que quieres colocar la bandera (x,y) : "))
+                fila, columna = coordenadas.split(",")
+                fila = int(fila)
+                columna = int(columna)
                 #Procesamiento
-                if coordenada_x or coordenada_y < 0 or coordenada_x or coordenada_y > 7:
-                    print("Error, no se puede poner una coordenada menor que 0 o mayor que 7")
+                if 0 <= fila <= 7 and 0 <= columna <= 7:
+                    tablero_visible[fila][columna] = "F"
                 else:
-                    tablero[coordenada_y].insert(coordenada_x,"F")
-
+                    print("Coordenadas fuera del rango permitido (0-7)")
             elif opcion == 3:
                 salir = True
 
